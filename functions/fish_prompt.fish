@@ -7,7 +7,7 @@ function fish_prompt --description 'Write out the prompt'
 
 	# PWD
 	set_color $fish_color_cwd
-	echo -n (prompt_pwd)
+	echo $PWD | sed 's|'"$HOME"'|~|' | xargs echo -n
 	set_color normal
 
 	printf '%s ' (__fish_git_prompt)
